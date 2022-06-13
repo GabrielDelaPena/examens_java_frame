@@ -1,9 +1,8 @@
 package be.ehb.examens.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -13,9 +12,13 @@ public class Verhuur {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotNull
-    private int auto_id;
+    @OneToOne
+    @JoinColumn(name = "auto_id", referencedColumnName = "id")
+    private Auto auto_id;
     @NotNull
-    private int huurder_id;
+    @OneToOne
+    @JoinColumn(name = "huurder_id", referencedColumnName = "id")
+    private Huurder huurder_id;
     private LocalDate huur_start;
     private LocalDate huur_stop;
 
@@ -30,19 +33,19 @@ public class Verhuur {
         this.id = id;
     }
 
-    public int getAuto_id() {
+    public Auto getAuto_id() {
         return auto_id;
     }
 
-    public void setAuto_id(int auto_id) {
+    public void setAuto_id(Auto auto_id) {
         this.auto_id = auto_id;
     }
 
-    public int getHuurder_id() {
+    public Huurder getHuurder_id() {
         return huurder_id;
     }
 
-    public void setHuurder_id(int huurder_id) {
+    public void setHuurder_id(Huurder huurder_id) {
         this.huurder_id = huurder_id;
     }
 

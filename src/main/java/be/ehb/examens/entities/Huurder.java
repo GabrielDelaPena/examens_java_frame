@@ -1,9 +1,6 @@
 package be.ehb.examens.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -21,6 +18,7 @@ public class Huurder {
     @Email
     @NotBlank
     private String email;
+
 
     public Huurder() {
     }
@@ -64,4 +62,6 @@ public class Huurder {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

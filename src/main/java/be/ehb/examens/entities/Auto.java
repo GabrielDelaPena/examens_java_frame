@@ -1,9 +1,6 @@
 package be.ehb.examens.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +17,7 @@ public class Auto {
     private String fabrikant;
     @NotNull
     private int aantalDeuren;
+
 
     public Auto() {
     }
@@ -63,4 +61,5 @@ public class Auto {
     public void setAantalDeuren(int aantalDeuren) {
         this.aantalDeuren = aantalDeuren;
     }
+
 }
